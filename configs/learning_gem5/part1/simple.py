@@ -80,7 +80,7 @@ system.cpu.interrupts[0].int_responder = system.membus.mem_side_ports
 
 # Create a DDR3 memory controller and connect it to the membus
 system.mem_ctrl = MemCtrl()
-system.mem_ctrl.dram = DDR3_1600_8x8()
+system.mem_ctrl.dram = NVM_2400_1x64()
 system.mem_ctrl.dram.range = system.mem_ranges[0]
 system.mem_ctrl.port = system.membus.mem_side_ports
 
@@ -94,7 +94,7 @@ thispath = os.path.dirname(os.path.realpath(__file__))
 binary = os.path.join(
     thispath,
     "../../../",
-    "tests/test-progs/hello/bin/x86/linux/hello",
+    "tests/test-progs/stream-benchmark/stream_c.exe",
 )
 
 system.workload = SEWorkload.init_compatible(binary)
